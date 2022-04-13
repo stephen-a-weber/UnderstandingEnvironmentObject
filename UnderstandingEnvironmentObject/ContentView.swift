@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var data = Data()
     var body: some View {
-        Text("Hello, world!")
+        NavigationView{
+            NavigationLink(destination : Red() )
+            {
+        Text("Hello, \(data.name) world!")
             .padding()
+            .background(.blue)
+            .foregroundColor(.orange)
+            
+            }
+            
     }
+        .environmentObject(data)
+    }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Data())
     }
 }
